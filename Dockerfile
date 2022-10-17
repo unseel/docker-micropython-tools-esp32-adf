@@ -12,7 +12,7 @@ RUN pip3 install -I pyparsing==2.3.1
 RUN pip3 install pyserial
 RUN pip3 install rshell
 
-RUN cd /root && git clone -b v4.3.1 --recursive https://github.com/espressif/esp-idf.git
+RUN cd /root && git clone -b v4.4.1 --recursive https://github.com/espressif/esp-idf.git
 WORKDIR /root/esp-idf
 RUN ./install.sh
 RUN echo 'source /root/esp-idf/export.sh' >> /root/.bashrc
@@ -20,7 +20,7 @@ RUN echo 'source /root/esp-idf/export.sh' >> /root/.bashrc
 # adf init
 RUN cd /root && git clone -b v2.4 --recursive https://github.com/espressif/esp-adf.git
 ENV ADF_PATH=/root/esp-adf
-RUN cd /root/esp-idf && git apply /root/esp-adf/idf_patches/idf_v4.3_freertos.patch
+RUN cd /root/esp-idf && git apply /root/esp-adf/idf_patches/idf_v4.4_freertos.patch
 
 # adf end
 
