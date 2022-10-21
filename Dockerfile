@@ -18,7 +18,7 @@ WORKDIR /root/esp-idf
 # RUN echo 'source /root/esp-idf/add_path.sh' >> /root/.bashrc
 
 # adf init
-RUN cd /root && git clone -b v2.0 --recursive https://github.com/espressif/esp-adf.git
+RUN cd /root && git clone -b v2.1 --recursive https://github.com/espressif/esp-adf.git
 ENV ADF_PATH=/root/esp-adf
 RUN cd /root/esp-idf && git apply /root/esp-adf/idf_patches/idf_v3.3_freertos.patch
 # adf end
