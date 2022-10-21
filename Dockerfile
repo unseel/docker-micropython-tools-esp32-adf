@@ -25,7 +25,8 @@ RUN cd /root/esp-idf && git apply /root/esp-adf/idf_patches/idf_v4.4_freertos.pa
 
 # mp init
 RUN cd /root/esp-adf/micropython_adf && git clone https://github.com/micropython/micropython.git
-RUN cd /root/esp-adf/micropython_adf/micropython && git reset --hard 1f371947309c5ea6023b6d9065415697cbc75578 && git submodule update --init --recursive
+RUN cd /root/esp-adf/micropython_adf/micropython && git reset --hard 1f371947309c5ea6023b6d9065415697cbc75578
+RUN cd /root/esp-adf/micropython_adf/micropython && git -c submodule."lib/tinyusb".update=none submodule update --init --recursive
 RUN cd /root/esp-adf/micropython_adf/micropython && git apply /root/esp-adf/micropython_adf/mpmake.patch
 # mp end
 
