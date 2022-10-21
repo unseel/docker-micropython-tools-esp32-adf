@@ -21,8 +21,13 @@ RUN echo 'source /root/esp-idf/export.sh' >> /root/.bashrc
 RUN cd /root && git clone -b v2.4 --recursive https://github.com/espressif/esp-adf.git
 ENV ADF_PATH=/root/esp-adf
 RUN cd /root/esp-idf && git apply /root/esp-adf/idf_patches/idf_v4.4_freertos.patch
-
 # adf end
+
+# mp init
+RUN cd /root/esp-adf/micropyton_adf && git clone https://github.com/micropython/micropython.git
+RUN cd /root/esp-adf/micropyton_adf/micropython && git reset --hard 1f371947309c5ea6023b6d9065415697cbc75578 && git submodule update --init --recursive
+RUN cd /root/esp-adf/micropyton_adf/micropython && git apply /root/esp-adf/micropyton_adf/mpmake.patch
+# mp end
 
 ENV IDF_PATH=/root/esp-idf
 ENV CROSS_COMPILE=/root/.espressif/tools/xtensa-esp32-elf/esp-2021r1-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-
