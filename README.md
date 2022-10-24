@@ -6,7 +6,7 @@
 1. Run the docker container
 
 ```sh
-docker run -it --rm -v {your micropython repo dir}:/root/esp-adf/micropython_adf/micropython robbietree/esp32-adf-build-docker:0.0.1
+docker run --name esp32-adf-build-docker -it --rm -v {your micropython repo dir}:/root/esp-adf/micropython_adf/micropython robbietree/esp32-adf-build-docker:0.0.1
 ```
 
 2. build MicroPython

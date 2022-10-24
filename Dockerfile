@@ -13,7 +13,7 @@ RUN pip3 install pyserial rshell
 
 RUN cd /root && git clone -b v3.3 --recursive https://github.com/espressif/esp-idf.git
 RUN cd /root && wget https://dl.espressif.com/dl/xtensa-esp32-elf-linux64-1.22.0-97-gc752ad5-5.2.0.tar.gz \
-&& tar -xzf xtensa-esp32-elf-linux64-1.22.0-97-gc752ad5-5.2.0.tar.gz
+&& tar -xzf xtensa-esp32-elf-linux64-1.22.0-97-gc752ad5-5.2.0.tar.gz && rm xtensa-esp32-elf-linux64-1.22.0-97-gc752ad5-5.2.0.tar.gz
 
 # WORKDIR /root/esp-idf
 
