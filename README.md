@@ -6,7 +6,7 @@
 1. Run the docker container
 
 ```sh
-docker run --name esp32-adf-build-docker -it --rm -v {your micropython repo dir}:/root/esp-adf/micropython_adf/micropython robbietree/esp32-adf-build-docker:0.0.1
+docker run --name esp32-adf-build-docker -it --rm robbietree/esp32-adf-build-docker:0.0.10
 ```
 
 2. build MicroPython
@@ -19,7 +19,7 @@ sh build-esp32.sh
 3. find the combined firmware bin
 
 ```sh
-ls /root/esp-adf/micropyton_adf/ports/esp32/build-GENERIC_S2/firmware.bin
+ls /root/esp-adf/micropyton_adf/ports/esp32/build-GENERIC_SPIRAM/firmware.bin
 ```
 
 ![build-success](https://raw.githubusercontent.com/unseel/docker-micropython-tools-esp32-adf/master/build-success.png)
