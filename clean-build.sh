@@ -1,0 +1,1 @@
+rm -rf ~/esp-adf/micropython_adf/micropython/ports/esp32/build-GENERIC_SPIRAM

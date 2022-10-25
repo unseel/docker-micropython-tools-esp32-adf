@@ -36,5 +36,6 @@ ENV CROSS_COMPILE=/root/.espressif/tools/xtensa-esp32-elf/esp-2021r1-8.4.0/xtens
 ENV PORT=/dev/ttyESP
 
 COPY build-esp32.sh /root
+COPY clean-build.sh /root
 WORKDIR /root
 
