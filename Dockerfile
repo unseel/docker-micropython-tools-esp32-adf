@@ -11,30 +11,23 @@ ENV PYTHON2=python
 RUN pip3 install -I pyparsing==2.3.1
 RUN pip3 install pyserial rshell
 
-RUN cd /root && git clone -b v3.3 --recursive https://github.com/espressif/esp-idf.git
-RUN cd /root && wget https://dl.espressif.com/dl/xtensa-esp32-elf-linux64-1.22.0-97-gc752ad5-5.2.0.tar.gz \
-&& tar -xzf xtensa-esp32-elf-linux64-1.22.0-97-gc752ad5-5.2.0.tar.gz && rm xtensa-esp32-elf-linux64-1.22.0-97-gc752ad5-5.2.0.tar.gz
-
-# WORKDIR /root/esp-idf
-
-# RUN ./install.sh
-RUN echo 'export PATH="/root/xtensa-esp32-elf/bin:$PATH"' >> /root/.bashrc
+RUN cd /root && git clone -b v4.4.1 --recursive https://github.com/espressif/esp-idf.git
+WORKDIR /root/esp-idf
+RUN ./install.sh
+RUN echo 'source /root/esp-idf/export.sh' >> /root/.bashrc
 
 # adf init
-RUN cd /root && git clone -b v2.1 --recursive https://github.com/espressif/esp-adf.git
+RUN cd /root && git clone -b v2.4.1 --recursive https://github.com/espressif/esp-adf.git
 ENV ADF_PATH=/root/esp-adf
-RUN cd /root/esp-idf && git apply /root/esp-adf/idf_patches/idf_v3.3_freertos.patch
+RUN cd /root/esp-idf && git apply /root/esp-adf/idf_patches/idf_v4.4_freertos.patch
 # adf end
 
 # mp init
-RUN cd /root/esp-adf/micropython_adf && git clone https://github.com/micropython/micropython.git \
-&& cd /root/esp-adf/micropython_adf/micropython && git reset --hard 1f371947309c5ea6023b6d9065415697cbc75578 \
-&& git -c submodule."lib/tinyusb".update=none submodule update --init --recursive \
-&& git apply /root/esp-adf/micropython_adf/mpmake.patch
+RUN cd /root/esp-adf/micropython_adf && git clone https://github.com/unseel/micropython.git
 # mp end
 
 ENV IDF_PATH=/root/esp-idf
-# ENV CROSS_COMPILE=/root/.espressif/tools/xtensa-esp32-elf/esp-2021r1-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-
+ENV CROSS_COMPILE=/root/.espressif/tools/xtensa-esp32-elf/esp-2021r1-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-
 ENV PORT=/dev/ttyESP
 
 COPY build-esp32.sh /root
