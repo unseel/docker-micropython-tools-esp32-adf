@@ -13,8 +13,7 @@ RUN pip3 install pyserial rshell
 
 RUN cd /root && git clone -b v4.4.1 --recursive https://github.com/espressif/esp-idf.git
 WORKDIR /root/esp-idf
-RUN ./install.sh
-RUN echo 'source /root/esp-idf/export.sh' >> /root/.bashrc
+RUN ./install.sh && echo 'source /root/esp-idf/export.sh' >> /root/.bashrc
 
 # adf init
 RUN cd /root && git clone -b v2.4.1 --recursive https://github.com/espressif/esp-adf.git
