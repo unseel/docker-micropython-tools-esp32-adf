@@ -22,7 +22,8 @@ RUN cd /root/esp-idf && git apply /root/esp-adf/idf_patches/idf_v4.4_freertos.pa
 # adf end
 
 # mp init
-RUN cd /root/esp-adf/micropython_adf && git clone https://github.com/unseel/micropython.git
+RUN cd /root/esp-adf/micropython_adf && git clone https://github.com/unseel/micropython.git \
+&& git submodule update --init --recursive
 # mp end
 
 ENV IDF_PATH=/root/esp-idf
