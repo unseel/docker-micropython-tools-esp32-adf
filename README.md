@@ -11,8 +11,8 @@ docker run --name esp32-adf-build-docker --add-host=host.docker.internal:host-ga
 
 export host proxy to container if blocked
 ```sh
-export http_proxy=http://host.docker.internal:3128
-export https_proxy=http://host.docker.internal:3128
+export http_proxy=http://host.docker.internal:1087
+export https_proxy=http://host.docker.internal:1087
 ```
 
 2. build MicroPython
