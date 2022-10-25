@@ -6,7 +6,13 @@
 1. Run the docker container
 
 ```sh
-docker run --name esp32-adf-build-docker -it --rm robbietree/esp32-adf-build-docker:0.0.10
+docker run --name esp32-adf-build-docker --add-host=host.docker.internal:host-gateway -it --rm robbietree/esp32-adf-build-docker:0.0.10
+```
+
+export host proxy to container if blocked
+```sh
+export http_proxy=http://host.docker.internal:3128
+export https_proxy=http://host.docker.internal:3128
 ```
 
 2. build MicroPython
