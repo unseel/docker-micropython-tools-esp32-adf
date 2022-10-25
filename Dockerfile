@@ -25,6 +25,12 @@ RUN cd /root/esp-idf && git apply /root/esp-adf/idf_patches/idf_v4.4_freertos.pa
 RUN cd /root/esp-adf/micropython_adf && git clone -b feat-adf --recursive https://github.com/unseel/micropython.git
 # mp end
 
+# mp adf patch init
+RUN cd /root && git clone https://github.com/unseel/micropython-adf-patch.git
+RUN cp -r /root/micropython-adf-patch/audio /root/esp-adf/micropython_adf/micropython/examples/usercmodule/audio
+
+# mp adf patch end
+
 ENV IDF_PATH=/root/esp-idf
 ENV CROSS_COMPILE=/root/.espressif/tools/xtensa-esp32-elf/esp-2021r1-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-
 ENV PORT=/dev/ttyESP
