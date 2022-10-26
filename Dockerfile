@@ -28,7 +28,7 @@ RUN cd /root/esp-adf/micropython_adf && git clone --recursive https://github.com
 # mp adf patch init
 RUN cd /root && git clone https://github.com/unseel/micropython-adf-patch.git
 # RUN cp -r /root/micropython-adf-patch/audio /root/esp-adf/micropython_adf/micropython/examples/usercmodule/audio
-RUN cd /root/esp-adf/micropython_adf/micropython && git apply /root/micropython-adf-patch/patch/micropython/1.19.1.patch
+RUN cd /root/esp-adf/micropython_adf/micropython && git apply /root/micropython-adf-patch/patch/micropython/master.patch
 RUN cd /root/esp-adf && git apply /root/micropython-adf-patch/patch/esp-adf/2.4.1.patch
 # mp adf patch end
 
