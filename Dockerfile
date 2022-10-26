@@ -22,7 +22,7 @@ RUN cd /root/esp-idf && git apply /root/esp-adf/idf_patches/idf_v4.4_freertos.pa
 # adf end
 
 # mp init
-RUN cd /root/esp-adf/micropython_adf && git clone -b v1.19.1 --recursive https://github.com/micropython/micropython.git
+RUN cd /root/esp-adf/micropython_adf && git clone --recursive https://github.com/micropython/micropython.git
 # mp end
 
 # mp adf patch init
