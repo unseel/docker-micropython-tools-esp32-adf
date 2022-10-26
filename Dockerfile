@@ -32,7 +32,7 @@ RUN cp -r /root/micropython-adf-patch/audio /root/esp-adf/micropython_adf/microp
 # mp adf patch end
 
 ENV IDF_PATH=/root/esp-idf
-ENV CROSS_COMPILE=/root/.espressif/tools/xtensa-esp32-elf/esp-2021r1-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-
+ENV CROSS_COMPILE=/root/.espressif/tools/xtensa-esp32-elf/esp-2021r2-patch3-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-
 ENV PORT=/dev/ttyESP
 
 COPY build-esp32.sh /root
