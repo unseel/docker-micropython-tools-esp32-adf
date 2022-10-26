@@ -6,7 +6,7 @@
 1. Run the docker container
 
 ```sh
-docker run --name esp32-adf-build-docker --add-host=host.docker.internal:host-gateway -it --rm robbietree/esp32-adf-build-docker:0.0.17
+docker run --name esp32-adf-build-docker --add-host=host.docker.internal:host-gateway -it --rm robbietree/esp32-adf-build-docker:0.0.18
 ```
 
 export host proxy to container if blocked
