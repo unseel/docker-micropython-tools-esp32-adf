@@ -6,7 +6,7 @@
 1. Run the docker container
 
 ```sh
-docker run --name esp32-adf-build-docker --add-host=host.docker.internal:host-gateway -it --rm robbietree/esp32-adf-build-docker:0.0.10
+docker run --name esp32-adf-build-docker --add-host=host.docker.internal:host-gateway -it --rm robbietree/esp32-adf-build-docker:0.0.17
 ```
 
 export host proxy to container if blocked
@@ -25,7 +25,7 @@ sh build-esp32.sh
 3. find the combined firmware bin
 
 ```sh
-ls /root/esp-adf/micropyton_adf/ports/esp32/build-GENERIC_SPIRAM/firmware.bin
+ls /root/esp-adf/micropyton_adf/micropython/ports/esp32/build-GENERIC_SPIRAM/firmware.bin
 ```
 
 ![build-success](https://raw.githubusercontent.com/unseel/docker-micropython-tools-esp32-adf/master/build-success.png)
@@ -37,7 +37,7 @@ esptool.py \
     --chip esp32 \
     --port /dev/cu.usbserial-0001 \
     --baud 460800 \
-    write_flash --flash_size=detect -fm dio 0 firmware.bin
+    write_flash --flash_size=detect -fm dio -z 0x1000 firmware.bin
 ```
 
 5. test board
