@@ -22,13 +22,14 @@ RUN cd /root/esp-idf && git apply /root/esp-adf/idf_patches/idf_v4.4_freertos.pa
 # adf end
 
 # mp init
-RUN cd /root/esp-adf/micropython_adf && git clone -b feat-adf --recursive https://github.com/unseel/micropython.git
+RUN cd /root/esp-adf/micropython_adf && git clone -b v1.19.1 --recursive https://github.com/micropython/micropython.git
 # mp end
 
 # mp adf patch init
 RUN cd /root && git clone https://github.com/unseel/micropython-adf-patch.git
-RUN cp -r /root/micropython-adf-patch/audio /root/esp-adf/micropython_adf/micropython/examples/usercmodule/audio
-
+# RUN cp -r /root/micropython-adf-patch/audio /root/esp-adf/micropython_adf/micropython/examples/usercmodule/audio
+RUN cd /root/esp-adf/micropython_adf/micropython && git apply /root/micropython-adf-patch/patch/micropython/1.19.1.patch
+RUN cd /root/esp-adf && git apply /root/micropython-adf-patch/patch/esp-adf/2.4.1.patch
 # mp adf patch end
 
 ENV IDF_PATH=/root/esp-idf
