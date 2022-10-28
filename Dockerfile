@@ -33,7 +33,7 @@ RUN cd /root/esp-adf && git apply /root/micropython-adf-patch/patch/esp-adf/2.4.
 # mp adf patch end
 
 ENV IDF_PATH=/root/esp-idf
-ENV CROSS_COMPILE=/root/.espressif/tools/xtensa-esp32-elf/esp-2021r2-patch3-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-
+ENV CROSS_COMPILE=/root/.espressif/tools/xtensa-esp32-elf/esp-2021r2-patch5-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-
 ENV PORT=/dev/ttyESP
 
 COPY build-esp32.sh /root
